@@ -1,8 +1,11 @@
 :- use_module(library(clpfd)).
 
-charles(Product):-
+pythagorean_triples_sum_equal_1000(A, B, C):-
 	[A,B,C] ins 1..1000,
-	1000 #= A + B + C,
-	C * C #= B*B + A*A,
-	once(label([A,B,C])),
-	Product is A * B * C.
+	A + B + C #= 1000,
+	A*A + B*B #= C*C,
+	once(label([A,B,C])).
+
+charles(Product):-
+	pythagorean_triples_sum_equal_1000(A, B, C),
+	Product #= A*B*C.

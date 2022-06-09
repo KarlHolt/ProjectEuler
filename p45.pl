@@ -75,3 +75,12 @@ all_three_opt(X):-
 	optimized_pen(N, X),
 	optimized_tri(N, X).
 
+
+alt(X):-
+	[N1, N2, N3] ins 1..100000,
+	N1 #> N2,
+	N2 #> N3,
+	X #= (N1 * N1 + N1) // 2,
+	X #= (3 * N2 * N2 - N2) // 2,
+	X #= (2 * N3 * N3 - N3),
+	label([N1, N2, N3]).

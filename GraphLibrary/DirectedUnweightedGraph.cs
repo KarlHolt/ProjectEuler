@@ -5,9 +5,9 @@ using System.Linq;
 
 public class DirectedUnweightedGraph<T> : Graph<T>
 {
-    public UndirectedUnweightedGraph() : base() { }
+    public DirectedUnweightedGraph() : base() { }
 
-    public UndirectedUnweightedGraph(List<T> nodes){
+    public DirectedUnweightedGraph(List<T> nodes){
         _nodes = nodes;
     }
 

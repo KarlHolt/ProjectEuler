@@ -51,10 +51,10 @@ public class Sequence
 
     public int GeneralSequence(int i, int a, int b, int c)
     {
-        /* All the defined sequences can be written on the format i*((a*i+b)/c) 
+        /* All the defined sequences can be written on the format (i*(a*i+b))/c
          * So to highlite this relationship, this method is used.
          */
-        return i*((a*i+b)/c);
+        return (i*(a*i+b))/c;
     }
 
     public int GeneralSequence(int i, int a, int b)

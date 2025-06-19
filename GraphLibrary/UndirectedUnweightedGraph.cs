@@ -24,7 +24,7 @@ public class UndirectedUnweightedGraph<T> : Graph<T>
         /* ----- TODO -----
          * Since this is an Unweighted graph, we should throw an error whenever an attempt to create a weighted graph happens. 
          *      For now okay to just ignore problem, and focefully set the weight to null
-         * Should also check if the node is already in the graph!
+         * Should also check if the edge is already in the graph!
          */
         _edges.Add(new Edge<T>(node1, node2, null));
     }

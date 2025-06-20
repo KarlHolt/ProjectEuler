@@ -22,7 +22,7 @@ public static class Prime
         }
         return true;
     }
-    
+
     public static List<int> GetPrimes(int limit)
     {
         /* GetPrimes takes an integer limit and returns all primes in the range 2…limit, including both 2 and limit.

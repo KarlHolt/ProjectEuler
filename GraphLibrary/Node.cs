@@ -1,6 +1,6 @@
 namespace GraphLibrary;
 
-public class Node <Tid, Tlabel>
+public class Node<Tid, Tlabel>
 {
     protected Tid _id;
     protected Tlabel _label;

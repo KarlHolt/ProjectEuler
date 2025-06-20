@@ -7,10 +7,11 @@ public class Sequence
 
     private int[] _state;
     private int[] _implementedSequences;
-    private  SequenceMethod[] sequenceMethods;
-    public Sequence(){
-        _state = new int[]{0, 0, 0, 0, 0, 0};
-        _implementedSequences = new int[]{3, 4, 5, 6, 7, 8};
+    private SequenceMethod[] sequenceMethods;
+    public Sequence()
+    {
+        _state = new int[] { 0, 0, 0, 0, 0, 0 };
+        _implementedSequences = new int[] { 3, 4, 5, 6, 7, 8 };
         sequenceMethods = new SequenceMethod[] {
             TriangleSeq,
             SquareSeq,
@@ -20,13 +21,14 @@ public class Sequence
             OctagonalSeq
         };
     }
-    public int Next(int sequence){
-        if(-1==Array.IndexOf(_implementedSequences, sequence))
+    public int Next(int sequence)
+    {
+        if (-1 == Array.IndexOf(_implementedSequences, sequence))
         {
             Console.WriteLine("An attempt was made to access a sequence which is not implemented");
             return -1;
         }
-        int index = sequence-3;
+        int index = sequence - 3;
         int state = _state[index]++;
         return sequenceMethods[index](state);
     }
@@ -35,11 +37,11 @@ public class Sequence
     {
         List<int> result = new List<int>();
         int[] oldState = (int[])_state.Clone();
-        _state = new int[]{0, 0, 0, 0, 0, 0};
+        _state = new int[] { 0, 0, 0, 0, 0, 0 };
         int nextNumber = Next(sequence);
-        while(nextNumber<upperLimit)
+        while (nextNumber < upperLimit)
         {
-            if(nextNumber>lowerLimit)
+            if (nextNumber > lowerLimit)
             {
                 result.Add(nextNumber);
             }
@@ -54,14 +56,14 @@ public class Sequence
         /* All the defined sequences can be written on the format (i*(a*i+b))/c
          * So to highlite this relationship, this method is used.
          */
-        return (i*(a*i+b))/c;
+        return (i * (a * i + b)) / c;
     }
 
     public int GeneralSequence(int i, int a, int b)
     {
         /* This is a special case of the 4 parameter, in which c is 1, i.e. no reason to spend time on dividing
          */
-        return i*(a*i+b);
+        return i * (a * i + b);
     }
 
     public int TriangleSeq(int i)

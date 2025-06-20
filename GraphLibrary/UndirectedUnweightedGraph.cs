@@ -7,7 +7,8 @@ public class UndirectedUnweightedGraph<T> : Graph<T>
 {
     public UndirectedUnweightedGraph() : base() { }
 
-    public UndirectedUnweightedGraph(List<T> nodes){
+    public UndirectedUnweightedGraph(List<T> nodes)
+    {
         _nodes = nodes;
     }
 
@@ -37,12 +38,12 @@ public class UndirectedUnweightedGraph<T> : Graph<T>
         {
             // A node is its own neighbour
             directPathExits = true;
-        } 
+        }
         else
         {
-            foreach(Edge<T> edge in _edges)
+            foreach (Edge<T> edge in _edges)
             {
-                if((edge.Origin.Equals(node1) && edge.Destination.Equals(node2)) || (edge.Origin.Equals(node2) && edge.Destination.Equals(node1)))
+                if ((edge.Origin.Equals(node1) && edge.Destination.Equals(node2)) || (edge.Origin.Equals(node2) && edge.Destination.Equals(node1)))
                 {
                     directPathExits = true;
                     break;
@@ -56,11 +57,11 @@ public class UndirectedUnweightedGraph<T> : Graph<T>
     {
         // Returns all nodes which exits in a edge pair with origin node. i.e. can be reached in one step
         List<T> neighbours = new List<T>();
-        foreach(Edge<T> edge in _edges)
+        foreach (Edge<T> edge in _edges)
         {
-            if(edge.Origin.Equals(origin))
+            if (edge.Origin.Equals(origin))
                 neighbours.Add(edge.Destination);
-            else if(edge.Destination.Equals(origin))
+            else if (edge.Destination.Equals(origin))
                 neighbours.Add(edge.Origin);
         }
         return neighbours;
@@ -73,16 +74,17 @@ public class UndirectedUnweightedGraph<T> : Graph<T>
     {
         // Returns true if the nodes is fully connected
         bool isClique = true;
-        foreach(T node1 in nodes)
+        foreach (T node1 in nodes)
         {
-            foreach(T node2 in nodes)
+            foreach (T node2 in nodes)
             {
-                if(!IsNeighbours(node1, node2)){
+                if (!IsNeighbours(node1, node2))
+                {
                     isClique = false;
                     break;
                 }
             }
-            if(!isClique)
+            if (!isClique)
             {
                 // As soon as we see it is not a clique we should exit.
                 break;
@@ -101,9 +103,9 @@ public class UndirectedUnweightedGraph<T> : Graph<T>
             foundCliques.Add(new List<T>(currentClique));
             return;
         }
-        if(searchSpace==null || searchSpace.Count == 0)
+        if (searchSpace == null || searchSpace.Count == 0)
             return; // If the searchspace is empty exit
-        else if(searchSpace.Count < expectedCliqueSize - currentClique.Count)
+        else if (searchSpace.Count < expectedCliqueSize - currentClique.Count)
             return; // If the searchspace is lower than needed nodes, we give up on this patt
         T newNode = searchSpace.First();
         List<T>? newSearchSpaceWithout = searchSpace.Skip(1).ToList();

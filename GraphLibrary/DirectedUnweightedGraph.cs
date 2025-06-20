@@ -7,7 +7,8 @@ public class DirectedUnweightedGraph<T> : Graph<T>
 {
     public DirectedUnweightedGraph() : base() { }
 
-    public DirectedUnweightedGraph(List<T> nodes){
+    public DirectedUnweightedGraph(List<T> nodes)
+    {
         _nodes = nodes;
     }
 
@@ -37,12 +38,12 @@ public class DirectedUnweightedGraph<T> : Graph<T>
         {
             // A node is its own neighbour
             directPathExits = true;
-        } 
+        }
         else
         {
-            foreach(Edge<T> edge in _edges)
+            foreach (Edge<T> edge in _edges)
             {
-                if(edge.Origin.Equals(node1) && edge.Destination.Equals(node2))
+                if (edge.Origin.Equals(node1) && edge.Destination.Equals(node2))
                 {
                     directPathExits = true;
                     break;
@@ -56,9 +57,9 @@ public class DirectedUnweightedGraph<T> : Graph<T>
     {
         // Returns all nodes which exits in a edge pair with origin node. i.e. can be reached in one step
         List<T> neighbours = new List<T>();
-        foreach(Edge<T> edge in _edges)
+        foreach (Edge<T> edge in _edges)
         {
-            if(edge.Origin.Equals(origin))
+            if (edge.Origin.Equals(origin))
                 neighbours.Add(edge.Destination);
         }
         return neighbours;
